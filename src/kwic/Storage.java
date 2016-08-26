@@ -9,6 +9,8 @@ public class Storage {
     private ArrayList<String> lines;
     private ArrayList<ArrayList<String>> words;
     
+    
+    //Initialisation
     public Storage() {
         this.lines = new ArrayList<String>();
         this.words = new ArrayList<ArrayList<String>>();        
@@ -17,6 +19,15 @@ public class Storage {
     public Storage(ArrayList<String> lines) {
         this.lines = lines;
         this.words = splitLines(lines);
+    }
+    
+    public ArrayList<ArrayList<String>> getAllWords() {
+        return words;
+    }
+    
+    public void addLine(String line) {
+        lines.add(line);
+        words.add(splitLine(line));
     }
     
     //This function splits up all the lines in the arraylist into their own array of words
