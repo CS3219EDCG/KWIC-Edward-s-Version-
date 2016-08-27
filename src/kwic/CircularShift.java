@@ -19,6 +19,15 @@ public class CircularShift {
         return shiftedList;
     }
     
+    public ArrayList<String> getFirstWords() {
+        ArrayList<String> tempList = new ArrayList<String>();
+        for (int i=0; i<shiftedList.size(); i++) {
+            tempList.add(shiftedList.get(i).get(0));
+        }
+        
+        return tempList;
+    }
+    
     private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
