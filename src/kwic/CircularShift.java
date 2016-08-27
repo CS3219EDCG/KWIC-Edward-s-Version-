@@ -7,10 +7,12 @@ public class CircularShift {
     
     private Storage storage;
     private ArrayList<String> ignoreList;
+    private ArrayList<ArrayList<String>> shiftedList;
     
     public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.storage = storage;
         this.ignoreList = ignoreList;
+        this.shiftedList = shiftLines(storage.getAllWords());
     }
     
     private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
