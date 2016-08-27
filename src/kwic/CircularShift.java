@@ -35,6 +35,19 @@ public class CircularShift {
         return result;
     }
     
+    private ArrayList<ArrayList<String>> shiftLines (ArrayList<ArrayList<String>> lines) {
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+        
+        for (int i=0; i<lines.size(); i++) {
+            ArrayList<String> words = lines.get(i);
+            for (ArrayList<String> listShifts : shiftLine(words)) {
+                result.add(listShifts);
+            }
+        }
+        
+        return result;
+    }
+    
     private void caseSet(ArrayList<ArrayList<String>> words) {
         for (int i=0; i<words.size(); i++) {
             for (int j=0; j< words.get(i).size(); j++) {
