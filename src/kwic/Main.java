@@ -3,8 +3,9 @@ package kwic;
 public class Main {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        MasterControl masterControl = new MasterControl();
+        
+        masterControl.start();
     }
 
 }
