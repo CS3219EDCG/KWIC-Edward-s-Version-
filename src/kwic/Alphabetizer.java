@@ -26,4 +26,8 @@ public class Alphabetizer {
         return rLines;
     }
     
+    public ArrayList<String> getLines() {
+        return lines;
+    }
+    
 }
