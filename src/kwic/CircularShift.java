@@ -15,6 +15,10 @@ public class CircularShift {
         this.shiftedList = shiftLines(storage.getAllWords());
     }
     
+    public ArrayList<ArrayList<String>> getShiftedList() {
+        return shiftedList;
+    }
+    
     private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
