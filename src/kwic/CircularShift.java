@@ -8,24 +8,28 @@ public class CircularShift {
     private Storage storage;
     private ArrayList<String> ignoreList;
     private ArrayList<ArrayList<String>> shiftedList;
+    private ArrayList<String> newShiftedList;
     
     public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.storage = storage;
         this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
+        this.newShiftedList = getShiftedList();
     }
     
-    public ArrayList<ArrayList<String>> getShiftedList() {
-        return shiftedList;
-    }
-    
-    public ArrayList<String> getFirstWords() {
-        ArrayList<String> tempList = new ArrayList<String>();
+    public ArrayList<String> getShiftedList() {       
+        
+        ArrayList<String> newList = new ArrayList<String>();
+        
         for (int i=0; i<shiftedList.size(); i++) {
-            tempList.add(shiftedList.get(i).get(0));
+            String line = new String();
+            for (int j=0; j<shiftedList.get(i).size(); j++) {
+                line.concat(shiftedList.get(i).get(j) + " ");
+            }
+            newList.add(line);
         }
         
-        return tempList;
+        return newList;
     }
     
     private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
