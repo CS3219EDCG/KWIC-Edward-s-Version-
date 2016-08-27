@@ -13,6 +13,28 @@ public class CircularShift {
         this.ignoreList = ignoreList;
     }
     
+    private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+
+        if (!inIgnoreList(words.get(0))) {
+            result.add(words);
+        }
+        
+        for (int i=1; i<words.size(); i++) {
+            ArrayList<String> tempResult = new ArrayList<String>(words);
+            Collections.rotate(tempResult, -1);
+            
+            if (!inIgnoreList(tempResult.get(0))) {
+                result.add(tempResult);
+            }
+            
+            words = tempResult;
+        }
+        
+        caseSet(result);
+        return result;
+    }
+    
     private void caseSet(ArrayList<ArrayList<String>> words) {
         for (int i=0; i<words.size(); i++) {
             for (int j=0; j< words.get(i).size(); j++) {
