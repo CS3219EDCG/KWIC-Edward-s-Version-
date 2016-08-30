@@ -8,13 +8,11 @@ public class CircularShift {
     private Storage storage;
     private ArrayList<String> ignoreList;
     private ArrayList<ArrayList<String>> shiftedList;
-    private ArrayList<String> newShiftedList;
     
     public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.storage = storage;
         this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
-        this.newShiftedList = getShiftedList();
     }
     
     public ArrayList<String> getShiftedList() {       
