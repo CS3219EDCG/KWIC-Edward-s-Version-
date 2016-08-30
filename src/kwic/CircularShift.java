@@ -5,11 +5,10 @@ import java.util.Collections;
 
 public class CircularShift {
     
-    private Storage storage;
     private ArrayList<String> ignoreList;
     private ArrayList<ArrayList<String>> shiftedList;
     
-    public CircularShift(ArrayList<String> ignoreList) {
+    public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
     }

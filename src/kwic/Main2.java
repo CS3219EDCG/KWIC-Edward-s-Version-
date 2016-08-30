@@ -31,7 +31,7 @@ public class Main2 {
             inputIgnore = sc.nextLine();
         }
         
-        CircularShift circularShift = new CircularShift(ignoreList);
+        CircularShift circularShift = new CircularShift(storage, ignoreList);
         
         Alphabetizer alphabetizer = new Alphabetizer(circularShift);
         
@@ -41,6 +41,8 @@ public class Main2 {
         for (int i=0; i<result.size(); i++) {
             System.out.println(result.get(i));
         }
+        
+        System.exit(0);
         
     }
 

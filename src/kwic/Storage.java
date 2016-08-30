@@ -26,7 +26,6 @@ public class Storage {
     
     public void addLine(String line) {
         lines.add(line);
-        words.add(splitLine(line));
     }
     
     //This function splits up all the lines in the arraylist into their own array of words
