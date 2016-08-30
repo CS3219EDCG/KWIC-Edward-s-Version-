@@ -11,7 +11,7 @@ public class CircularShift {
     
     public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.storage = storage;
-        this.ignoreList = storage.getIgnore();
+        this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
     }
     

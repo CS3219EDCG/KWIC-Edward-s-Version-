@@ -7,4 +7,5 @@ public interface InputListener {
     public void handleIgnoreWordAddedEvent(String word);
 
     public void handleInputFinishedEvent();
+
 }
