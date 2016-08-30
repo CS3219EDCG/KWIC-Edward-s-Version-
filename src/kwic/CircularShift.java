@@ -9,8 +9,7 @@ public class CircularShift {
     private ArrayList<String> ignoreList;
     private ArrayList<ArrayList<String>> shiftedList;
     
-    public CircularShift(Storage storage, ArrayList<String> ignoreList) {
-        this.storage = storage;
+    public CircularShift(ArrayList<String> ignoreList) {
         this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
     }
@@ -30,6 +29,7 @@ public class CircularShift {
         return newList;
     }
     
+    //Shift one line only
     private ArrayList<ArrayList<String>> shiftLine (ArrayList<String> words) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
@@ -52,6 +52,7 @@ public class CircularShift {
         return result;
     }
     
+    //Shift several lines at one time
     private ArrayList<ArrayList<String>> shiftLines (ArrayList<ArrayList<String>> lines) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
         
@@ -65,6 +66,7 @@ public class CircularShift {
         return result;
     }
     
+    //Setting upper/lower case
     private void caseSet(ArrayList<ArrayList<String>> words) {
         for (int i=0; i<words.size(); i++) {
             for (int j=0; j< words.get(i).size(); j++) {
@@ -83,7 +85,7 @@ public class CircularShift {
     
     private boolean inIgnoreList(String word) {
         for (int i=0; i<ignoreList.size(); i++) {
-            if (ignoreList.get(i).toLowerCase().equals(word)) {
+            if (ignoreList.get(i).toLowerCase().equals(word.toLowerCase())) {
                 return true;
             }
         }
