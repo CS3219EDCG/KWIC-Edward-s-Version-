@@ -15,15 +15,23 @@ public class Storage {
         this.words = new ArrayList<ArrayList<String>>();   
     }
     
+    //Overloading
     public Storage(ArrayList<String> lines) {
         this.lines = lines;
         this.words = splitLines(lines);
     }
     
+    //For testing
     public ArrayList<ArrayList<String>> getAllWords() {
         return words;
     }
     
+    //for testing
+    public ArrayList<String> getLines() {
+        return lines;
+    }
+    
+    //Adding lines to the database
     public void addLine(String line) {
         lines.add(line);
         words.add(splitLine(line));

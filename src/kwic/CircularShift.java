@@ -3,16 +3,21 @@ package kwic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//This is the class that does the circular shifting process
+
 public class CircularShift {
     
     private ArrayList<String> ignoreList;
     private ArrayList<ArrayList<String>> shiftedList;
+    private ArrayList<String> modList;
     
+    //Initialisation
     public CircularShift(Storage storage, ArrayList<String> ignoreList) {
         this.ignoreList = ignoreList;
         this.shiftedList = shiftLines(storage.getAllWords());
     }
     
+    //Joins the words in shiftedList together to form a proper lines
     public ArrayList<String> getShiftedList() {       
         
         ArrayList<String> newList = new ArrayList<String>();
@@ -20,12 +25,33 @@ public class CircularShift {
         for (int i=0; i<shiftedList.size(); i++) {
             String line = new String();
             for (int j=0; j<shiftedList.get(i).size(); j++) {
-                line.concat(shiftedList.get(i).get(j) + " ");
+                line = line + shiftedList.get(i).get(j) + " ";
             }
             newList.add(line);
         }
         
         return newList;
+    }
+    
+    //For testing
+    public void printList() {
+        for (String line : ignoreList)
+            System.out.println(line);
+        
+        System.out.println("\n");
+        
+        for (int i=0; i<shiftedList.size(); i++) {
+            for (int j=0; j<shiftedList.get(i).size(); j++) {
+                System.out.println(shiftedList.get(i).get(j));
+            }
+        }
+        
+        System.out.println("\n");
+        modList = getShiftedList();
+        for (String sLine : modList) {
+            System.out.println(sLine);
+        }
+        
     }
     
     //Shift one line only
@@ -82,6 +108,7 @@ public class CircularShift {
         }
     }
     
+    //Checking if the particular word is in the list of words to ignore
     private boolean inIgnoreList(String word) {
         for (int i=0; i<ignoreList.size(); i++) {
             if (ignoreList.get(i).toLowerCase().equals(word.toLowerCase())) {
